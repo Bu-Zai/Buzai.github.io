@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="MYBLOG/main.css">
+    <title>布在</title>
+    <style></style>
+</head>
+
+<body>
+    <div class="top">
+        <div style="text-align: center;">Hellow!Everyone!</div>
+        <div class="var">
+            <a href="index.html">首页</a>
+            <a href="http://www.sina.com.cn">新闻</a>
+            <a href="http://www.weibo.com">微博</a>
+            <a href="game.html">游戏</a>
+        </div>
+    </div>
+    <hr>
+    <div class="left">
+        <div class="header">
+            <a href="index.html" class="logo">布在</a>
+            <div class="intro">天才种子选手</div>
+        </div>
+        <div class="nav">
+            <a href="#" class="item">关于我</a>
+            <a href="#" class="item">联系我</a>
+            <a href="#" class="item">捐助我</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="article-list">
+            <div style="color: #766;">点击文章题目查看完整内容</div>
+            <div class="item">           
+                <a href="article.html" class="title">缘起则聚，缘灭则散</a>   
+                <div class="status">发布于：2020-9-14 | 阅读：5407 | 标签：#缘</div>
+                <div class="content">
+                    <p>夜，结束了一天的喧嚣后安静下来，伴随着远处路灯那微弱的光。风，毫无预兆地席卷整片旷野，撩动人的思绪万千。星，遥遥地挂在天空之中，闪烁着它那微微星光，不如阳光般灿烂却如花儿般如痴如醉。</p> 
+                </div>
+                <a href="article.html" class="title">人生若只如初见</a>
+                <div class="status">发布于：2020-9-14 | 阅读：5000 | 标签：#林徽因 #人生若只如初见</div>
+                <div class="content">
+                  <p>秋风淡了，寒气浓了，初秋清晨晶莹的甘露如今变成了刺人霜碴，曾经最珍惜的美景如今也萧瑟了满地的冷清。随手捡起一片枯黄枫叶，发觉上面雕刻着的全是这一季的留念，莫名感慨万千。俯身把它放进岁月长河里，整理好衣衫再回首，猛然间发觉-秋已经深了。记得初秋的时候，清晨总喜爱早早的起床，揉着惺忪的睡眼，爬上平房顶，眺望远方的红日从那云霞深处慢慢的升至云端，绕着天空划下一道刺眼的弧线，一晚上慵懒的疲乏都随日光消散云外了，间或几只飞鸟擦过，像是梦中的仙境。那双翱翔的翅膀变成幻想的身影，熟悉又陌生，亲近又模糊，若即若离的感觉似乎是疲乏的源头，但这种心情又好像那自由的飞鸟一样，一个瞬间，就擦过你的上方，仿佛转瞬即逝，丝毫不影响对清晨大好空气的汲取。</p>
+                </div>
+                <a href="article.html" class="title">迟暮</a>
+                <div class="status">发布于：2020-9-15 | 阅读：5236 | 标签：#张爱玲 #秋暮晚霞 #心情</div>
+                <div class="content">
+                    <p>文章那种灰暗幽雅的基调易引起读者内心深处的共鸣，慢慢的，我们终将经历青春的消逝，往事会如烟云般飘散，逐渐步入“黄卷清灯，美人迟暮”的年纪。我们也会有刚从美好的青春梦幻中清醒过来的怅惘，但迟暮的景致也别有一番风味：不像春光般妩媚，不如夏日般绚烂，却有秋暮晚霞的温润柔和。</p>
+        </div> 
+        <hr> 
+        <div class="comments">
+            <div class="tittle">评论区</div>
+            <ul></ul>
+            <textarea name="ljc小弟" id="111" cols="30" rows="10"></textarea>
+            <button>发布</button>
+            <script> 
+                //获取元素
+                var txt = document.querySelector("textarea");
+                var btn = document.querySelector("button");
+                var ul = document.querySelector("ul");
+                //2、给button绑定点击事件
+                btn.onclick = function () {
+                    if (txt.value == "") {
+                        //当文本框中没有文字时，提示
+                        alert("您没有输入内容")
+                    } 
+                    else {
+                        //创建元素li作为留言区
+                        var li = document.createElement("li");
+                        //将文本框中的内容放到li中,a标签中href中的内容代表什么都不执行
+                        li.innerHTML = txt.value + "<a href='javascript:;'>删除</a>"
+                        txt.value = "";//添加之后文本框的内容清空
+                        //将留言添加到ul中，而且在最上方
+                        ul.insertBefore(li, ul.children[0]);
+                        //当点击删除时删除ul中的li
+                        var as = document.querySelectorAll("a");
+                        //循环给每个删除绑定事件
+                        for (var i = 0; i < as.length; i++) {
+                            as[i].onclick = function () {
+                                //删除当前a标签所在位置的父节点li
+                                ul.removeChild(this.parentNode);
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>        
+    </div>
+</body>
+</html>
